@@ -33,6 +33,11 @@ var Pomodoro = React.createClass({
         <Text style={styles.timer}>
           {this.formatNum(this.state.min)}:{this.formatNum(this.state.sec)}
         </Text>
+        <TouchableHighlight underlayColor='#05FFFFFF' onPress={this.onButtonPressed}>
+          <Text style={styles.goButton}>
+            Go
+          </Text>
+        </TouchableHighlight>
       </View>
     );
   }
@@ -56,6 +61,11 @@ var styles = StyleSheet.create({
       fontWeight: 'bold',
       fontSize: 48,
       marginBottom: 75,
+    },
+    goButton: {
+      color: 'white',
+      fontSize: 40,
+      marginBottom: 30,
     },
 });
 
