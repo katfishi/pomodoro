@@ -9,6 +9,7 @@ var {
   AppRegistry,
   StyleSheet,
   Text,
+  TouchableHighlight,
   View,
 } = React;
 
