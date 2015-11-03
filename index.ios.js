@@ -25,6 +25,24 @@ var Pomodoro = React.createClass({
     return num < 10 ? '0' + num : num;
   },
 
+  countdown: function() {
+    if (this.state.sec == 0 && this.state.min == 0) {
+      clearInterval(this.interval);
+      return;
+    }
+
+    if (this.state.sec == 0) {
+      this.setState({min: this.state.min - 1,
+        sec: 59});
+    } else {
+      this.setState({sec: this.state.sec - 1});
+    }
+  },
+
+  onButtonPressed: function() {
+    this.interval = setInterval(this.countdown, 1000);
+  },
+
   render: function() {
     return (
       <View style={styles.container}>
