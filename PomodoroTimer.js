@@ -1,6 +1,7 @@
 'use strict';
 
 var React = require('react-native');
+var TextNavigation = require('./TextNavigation');
 var {
   AppRegistry,
   StyleSheet,
@@ -39,6 +40,15 @@ var PomodoroTimer = React.createClass({
     this.interval = setInterval(this.countdown, 1000);
   },
 
+  onNextPressed: function() {
+    this.props.navigator.push({
+      component: TextNavigation,
+      passProps: {
+        text: 'Hello from the PomodoroTimer component!',
+      }
+    });
+  },
+
   render: function() {
     return (
       <View style={styles.container}>
@@ -51,6 +61,11 @@ var PomodoroTimer = React.createClass({
         <TouchableHighlight underlayColor='#05FFFFFF' onPress={this.onButtonPressed}>
           <Text style={styles.goButton}>
             Go
+          </Text>
+        </TouchableHighlight>
+        <TouchableHighlight underlayColor='#05FFFFFF' onPress={this.onNextPressed}>
+          <Text style={styles.goButton}>
+            Next
           </Text>
         </TouchableHighlight>
       </View>
